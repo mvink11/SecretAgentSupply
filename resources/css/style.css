@@ -1,56 +1,215 @@
 html{
   font-size: 18px;
 }
-
-.main-container{
-  width: 960px;
+body{
+  margin: 0;
   font-family: helvetica;
-  color: white;
-  border: 3px solid orange;
-  margin: auto;
 }
 
-}
-.header{
-  height: 1.5rem;
-}
-.header, .arrival, .navigation, .location-head, .hours-head, .footer{
-  background-color: black;
-  border: 3px solid orange;
-}
-.main-banner{
+/*Main container used by all sections*/
+.outside{
   width: 100%;
-  height: 25rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  width: 960px;
+  display: flex;
+}
+/**/
+/*Header and logo*/
+header{
+  background-color: black;
+  color: white;
+}
+header .container{
+  align-items: center;
+}
+header img{
+  height: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+}
+header p{
+  font-size: 1rem;
+  margin: 0.66rem 0;
+}
+
+/*Moto Banner section and new arrival block*/
+.main-banner{
   background-image: url("../images/moto.jpeg");
-  border: 3px solid orange;
+  height: 25rem;
+  background-size: cover;
 }
+
 .arrival{
-  width: 20rem;
+  width: 25rem;
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 9rem;
+  text-align: left;
+}
+.arrival h3{
+  font-size: 2rem;
+  font-weight: bold;
+  padding-top: 0.25rem;
+  padding-bottom: 2rem;
+  padding-left: 3rem;
+}
+.arrival h4{
+  font-size: 1rem;
+  font-weight: bold;
+  padding-top: 2rem;
+  padding-left: 3rem;
 }
 
-.navigation{
+/*Nav section*/
+nav{
   background-color: firebrick;
-  height: 2rem;
+  color: white;
+  display: flex;
+  height: 2.5rem;
+}
+nav .container{
+  justify-content: space-between;
+}
+nav span{
+  margin: 0.75rem 0;
 }
 
+/*Product grid and inventory*/
+.product-grid .container{
+  justify-content: space-between;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
 .product-grid{
   display: flex;
-  margin-top: 3rem;
-  justify-content: space-between;
-  border: 3px solid orange;
 }
-.selection{
-  display: inline-block;
-  width: 30%;
+.product{
   border: 4px solid black;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.product .image{
+  height: 9rem;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+}
+.product img{
+  max-width: 8rem;
+}
+.product p{
+  padding: 0.5rem 0;
+  width: 100%;
+  background-color: black;
+  color: white;
   text-align: center;
 }
-.selection img{
-  padding: 2rem;
-  height: 9rem;
+
+/*Contact Info section*/
+.contact .container{
+  justify-content: space-between;
+  padding-bottom: 4rem;
+}
+.location, .hours{
+  width: 35%;
+}
+.title{
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
 }
 
-.footer{
+/*Footer*/
+footer{
+  background-color: black;
+  color: white;
   height: 5rem;
-  text-align: left;
+}
+footer .container{
+  align-items: center;
+}
+
+           /*Media Queries*/
+/*Desktop Display*/
+@media only screen and (min-width: 1024px){
+  .tablet, .phone{
+    display: none;
+  }
+}
+/*Tablet Display*/
+@media only screen and (max-width: 1023px){
+  .desktop, .phone{
+    display: none;
+  }
+  nav .container{
+    justify-content: center;
+  }
+  .product.glasses{
+    display: none;
+  }
+  .product{
+    width: 47%
+  }
+  .product-grid{
+    justify-content: space-between;
+  }
+}
+
+/*Phone Display*/
+@media only screen and (max-width: 469px){
+  .desktop{
+    display: none;
+  }
+  /*Moto Banner*/
+  .main-banner{
+    height: 15rem;
+  }
+  .arrival{
+    top: 12rem;
+    height: 5rem;
+  }
+  .arrival h3{
+    font-size: 1rem;
+  }
+  .arrival h4{
+    font-size: 0.77rem;
+    top: 1rem;
+  }
+  /*Navigation*/
+  nav .container{
+    justify-content: center;
+  }
+  /*Product Grid*/
+  .product-grid .container{
+    justify-content: center;
+  }
+  .product.watch, .product.glasses{
+    display: none;
+  }
+  .product{
+    width: 90%;
+  }
+  /*Contact*/
+  .contact .container{
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+  }
+  .location, .hours{
+    width: 90%;
+  }
+  .hours{
+    padding-top: 0.5rem;
+  }
+  footer .container {
+    justify-content: center;
+  }
 }
